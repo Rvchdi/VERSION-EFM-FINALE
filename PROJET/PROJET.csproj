@@ -9,10 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\icons8-administrateur-système-masculin-100.png" />
+    <None Remove="Resources\icons8-administrateur-système-masculin-48.png" />
+    <None Remove="Resources\icons8-aujourd%27hui-100.png" />
+    <None Remove="Resources\icons8-deux-tickets-100.png" />
+    <None Remove="Resources\icons8-football-100.png" />
+    <None Remove="Resources\icons8-groupe-d&amp;#39%3butilisateurs-100.png" />
+    <None Remove="Resources\icons8-stade-100.png" />
+    <None Remove="Resources\icons8-événement-100.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
     <PackageReference Include="MaterialSkin" Version="0.2.1" />
     <PackageReference Include="MaterialSkin.Updated" Version="0.2.2" />
     <PackageReference Include="MaterialSkin2DotNet" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
     <PackageReference Include="MySql.Data" Version="8.2.0" />
   </ItemGroup>
 
@@ -29,6 +41,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>

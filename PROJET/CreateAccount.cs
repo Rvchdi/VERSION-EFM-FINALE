@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace PROJET
 {
     public partial class CreateAccount : Form
     {
-        MySqlConnection cnx = Program.Getconnection();
-        string connectionString = "Server=localhost;Database=efm;Uid=user;Pwd='';";
+        SqlConnection cnx = Program.Getconnection();
+        
 
         public CreateAccount()
         {
@@ -37,7 +37,7 @@ namespace PROJET
                     cnx.Open();
                 MessageBox.Show("Connected successfully", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (MySqlException ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show($"{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -45,8 +45,9 @@ namespace PROJET
 
         private void ConfirmBTN_Click(object sender, EventArgs e)
         {
+            
             List<string> Details = new List<string>();
-            MySqlConnection cnx = Program.Getconnection();  
+            SqlConnection cnx = Program.Getconnection();  
             
             String firstname = firstnameTXT.Text;
             String lastname = lastnameTXT.Text;
@@ -56,60 +57,63 @@ namespace PROJET
             String username = usernameTXT.Text;
             String password = pwdTXT.Text;
             String passwordConfirm = pwdconfirmTXT.Text;
-            if (password != passwordConfirm) {
-                MessageBox.Show("Passwords are not identical", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (firstname == "" || lastname == "" || adress == "" || username == "" || password == "" || passwordConfirm == "" || email == "") {
-                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            while (true) {
+            using (cnx) {
                 cnx.Open();
-                using (cnx)
+                if (password != passwordConfirm)
                 {
-                    string sqlRequest = "INSERT INTO client (NOM, PRENOM,ADRESS,gender,EMAIL,USERNAME,PWD,ROLE) VALUES (@Value1, @Value2,@Value3,@Value4,@Value5,@Value6,@Value7,@Value8)";
-                    try
+                    MessageBox.Show("Passwords are not identical", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                
+                }
+                else if (firstname == "" || lastname == "" || adress == "" || username == "" || password == "" || passwordConfirm == "" || email == "") {
+                    MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   
+                }
+                string sqlRequest = "INSERT INTO client (NOM, PRENOM,ADRESS,gender,EMAIL,USERNAME,PWD,ROLE) VALUES (@Value1, @Value2,@Value3,@Value4,@Value5,@Value6,@Value7,@Value8)";
+                try
+                {
+
+
+                    using (SqlCommand command = new SqlCommand(sqlRequest, cnx))
                     {
-                        using (MySqlCommand command = new MySqlCommand(sqlRequest, cnx))
+                        command.Parameters.AddWithValue("@Value1", firstname);
+                        command.Parameters.AddWithValue("@Value2", lastname);
+                        command.Parameters.AddWithValue("@Value3", adress);
+                        command.Parameters.AddWithValue("@Value4", gender);
+                        command.Parameters.AddWithValue("@Value5", email);
+                        command.Parameters.AddWithValue("@Value6", username);
+                        command.Parameters.AddWithValue("@Value7", password);
+                        command.Parameters.AddWithValue("@Value8", "user");
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
                         {
-                            command.Parameters.AddWithValue("@Value1", firstname);
-                            command.Parameters.AddWithValue("@Value2", lastname);
-                            command.Parameters.AddWithValue("@Value3", adress);
-                            command.Parameters.AddWithValue("@Value4", gender);
-                            command.Parameters.AddWithValue("@Value5", email);
-                            command.Parameters.AddWithValue("@Value6", username);
-                            command.Parameters.AddWithValue("@Value7", password);
-                            command.Parameters.AddWithValue("@Value8", "user");
-
-                            int rowsAffected = command.ExecuteNonQuery();
-                            if (rowsAffected > 0)
+                            // Handle successful insertion (e.g., display a message)
+                            if (MessageBox.Show("Account created successfully", "Account created", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                             {
-                                // Handle successful insertion (e.g., display a message)
-                                if (MessageBox.Show("Account created successfully", "Account created", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                                {
-                                    this.Close();
-                                }
-
-
+                                this.Close();
                             }
-                            else {
-                                if (MessageBox.Show($"Error", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) {
-                                    adressTXT.Clear();
-                                    firstnameTXT.Clear();
-                                    lastnameTXT.Clear();
-                                    genderCOMBO.ResetText();
-                                    pwdconfirmTXT.Clear();
-                                    pwdTXT.Clear();
-                                    usernameTXT.Clear();
-                                    emailTXT.Clear();
-                                };
-                            }
+
+                            cnx.Close();
                         }
-                     }
-                    catch(MySqlException ex ) {
-                        /*MessageBox.Show($"{ex}", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
-                        break;
+                        else
+                        {
+                            if (MessageBox.Show($"Error", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                            {
+                                adressTXT.Clear();
+                                firstnameTXT.Clear();
+                                lastnameTXT.Clear();
+                                genderCOMBO.ResetText();
+                                pwdconfirmTXT.Clear();
+                                pwdTXT.Clear();
+                                usernameTXT.Clear();
+                                emailTXT.Clear();
+                            };
+                        }
                     }
-                                    
+                
+                     }
+                    catch(SqlException ex ) {
+                        Console.WriteLine(ex.Message);                       
+                    }
+                          
                     }
                    
                 }
@@ -120,5 +124,4 @@ namespace PROJET
 
 
         }
-    }
 

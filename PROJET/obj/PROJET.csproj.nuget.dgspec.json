@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\Projet\\PROJET\\PROJET.csproj": {}
+    "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\PROJET\\PROJET\\PROJET.csproj": {}
   },
   "projects": {
-    "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\Projet\\PROJET\\PROJET.csproj": {
+    "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\PROJET\\PROJET\\PROJET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\Projet\\PROJET\\PROJET.csproj",
+        "projectUniqueName": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\PROJET\\PROJET\\PROJET.csproj",
         "projectName": "PROJET",
-        "projectPath": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\Projet\\PROJET\\PROJET.csproj",
+        "projectPath": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\PROJET\\PROJET\\PROJET.csproj",
         "packagesPath": "C:\\Users\\mac\\.nuget\\packages\\",
-        "outputPath": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\Projet\\PROJET\\obj\\",
+        "outputPath": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\PROJET\\PROJET\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,6 +60,10 @@
             "MaterialSkin2DotNet": {
               "target": "Package",
               "version": "[1.1.2, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.2, )"
             },
             "MySql.Data": {
               "target": "Package",

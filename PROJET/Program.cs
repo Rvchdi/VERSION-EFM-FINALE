@@ -1,13 +1,23 @@
-using MySql.Data.MySqlClient;
+using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
+using System.Data.SqlClient;
 namespace PROJET
 
 {
     internal static class Program
     {
+        public static class loggedUser {
+            public static string username { get; set; }
+        }
+        
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
+
+
+        
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
@@ -15,11 +25,12 @@ namespace PROJET
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
-        public static MySqlConnection Getconnection()
+        public static SqlConnection Getconnection()
         {
-            string strcnx = @"server=localhost; database=efm; uid=root";
-            MySqlConnection cnx = new MySqlConnection(strcnx);
+            string strcnx = @"server=192.168.1.2; database=efm; uid=sa; password=; TrustServerCertificate=True";
+            SqlConnection cnx = new SqlConnection(strcnx);
             return cnx;
         }
+        
     }
 }

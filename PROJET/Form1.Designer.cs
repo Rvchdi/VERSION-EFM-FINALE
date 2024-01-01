@@ -34,7 +34,7 @@
             panel1 = new Panel();
             label6 = new Label();
             pwdTXT = new TextBox();
-            textBox1 = new TextBox();
+            usernameTXT = new TextBox();
             materialButton1 = new MaterialSkin2DotNet.Controls.MaterialButton();
             forgetpwdBtn = new Label();
             label5 = new Label();
@@ -63,7 +63,7 @@
             panel1.BackColor = SystemColors.ButtonHighlight;
             panel1.Controls.Add(label6);
             panel1.Controls.Add(pwdTXT);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(usernameTXT);
             panel1.Controls.Add(materialButton1);
             panel1.Controls.Add(forgetpwdBtn);
             panel1.Controls.Add(label5);
@@ -97,13 +97,13 @@
             pwdTXT.TabIndex = 11;
             pwdTXT.TextChanged += pwdTXT_TextChanged_1;
             // 
-            // textBox1
+            // usernameTXT
             // 
-            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(38, 158);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(272, 33);
-            textBox1.TabIndex = 10;
+            usernameTXT.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernameTXT.Location = new Point(38, 158);
+            usernameTXT.Name = "usernameTXT";
+            usernameTXT.Size = new Size(272, 33);
+            usernameTXT.TabIndex = 10;
             // 
             // materialButton1
             // 
@@ -124,6 +124,7 @@
             materialButton1.Type = MaterialSkin2DotNet.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton1.UseAccentColor = false;
             materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
             // 
             // forgetpwdBtn
             // 
@@ -256,7 +257,7 @@
         private Label label5;
         private MaterialSkin2DotNet.Controls.MaterialButton materialButton1;
         private TextBox pwdTXT;
-        private TextBox textBox1;
+        private TextBox usernameTXT;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Label label6;
     }

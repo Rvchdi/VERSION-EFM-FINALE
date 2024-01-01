@@ -16,14 +16,21 @@ namespace PROJET
 {
     public partial class MainApp : Form
     {
-        UserInfoFORM userInfo = new UserInfoFORM();
-        EventForm eventForm = new EventForm();
-        MyTicketsFORMcs ticketForm = new MyTicketsFORMcs();
+        private string user;
+        
         public MainApp()
         {
             InitializeComponent();
-
+                        
         }
+        public void SetUsername(string username)
+        {
+            user = username; 
+        }
+
+        UserInfoFORM userInfo = new UserInfoFORM();
+        EventForm eventForm = new EventForm();
+        MyTicketsFORMcs ticketForm = new MyTicketsFORMcs();
 
         private void MainApp_Load(object sender, EventArgs e)
         {
@@ -36,6 +43,7 @@ namespace PROJET
 
             userInfo.TopLevel = false;
             userInfo.Parent = this;
+            userInfo.SetUsername(user);
             mainPanel.Controls.Add(userInfo);
             userInfo.Dock = DockStyle.Fill;
             userInfo.Show();
