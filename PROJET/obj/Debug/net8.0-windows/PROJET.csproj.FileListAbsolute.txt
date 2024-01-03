@@ -68,3 +68,4 @@
 \\Mac\Home\Desktop\PROJET EFM\C#\Projet\PROJET\obj\Debug\net8.0-windows\PROJET.AdminPanelHome.resources
 \\Mac\Home\Desktop\PROJET EFM\C#\Projet\PROJET\obj\Debug\net8.0-windows\PROJET.UserForm.resources
 \\Mac\Home\Desktop\PROJET EFM\C#\Projet\PROJET\obj\Debug\net8.0-windows\PROJET.AdminEVENT.resources
+\\Mac\Home\Desktop\PROJET EFM\C#\Projet\PROJET\obj\Debug\net8.0-windows\PROJET.AdminUSERcs.resources

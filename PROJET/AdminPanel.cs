@@ -14,6 +14,7 @@ namespace PROJET
     {
         AdminPanelHome APH = new AdminPanelHome();
         AdminEVENT AE = new AdminEVENT();
+        AdminUSERcs AU  = new AdminUSERcs();
         public AdminPanel()
         {
             InitializeComponent();
@@ -36,6 +37,18 @@ namespace PROJET
             AE.Dock = DockStyle.Fill;
             AE.Show();
             APH.Hide();
+            AU.Hide();
+        }
+
+        private void usrmngmtBTN_Click(object sender, EventArgs e)
+        {
+            AU.TopLevel = false;
+            AU.Parent = this;
+            mainPanel.Controls.Add(AU);
+            AU.Dock = DockStyle.Fill;
+            AU.Show();
+            APH.Hide();
+            AE.Hide();
         }
     }
 }

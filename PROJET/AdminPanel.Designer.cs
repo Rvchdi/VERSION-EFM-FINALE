@@ -53,7 +53,7 @@
             guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             eventmngmtBTN = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            usrmngmtBTN = new Guna.UI2.WinForms.Guna2Button();
             mainPanel = new Guna.UI2.WinForms.Guna2Panel();
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
             DragControl.SuspendLayout();
@@ -117,7 +117,7 @@
             panel1.Controls.Add(guna2Button4);
             panel1.Controls.Add(guna2Button3);
             panel1.Controls.Add(eventmngmtBTN);
-            panel1.Controls.Add(guna2Button1);
+            panel1.Controls.Add(usrmngmtBTN);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 45);
             panel1.Name = "panel1";
@@ -191,27 +191,28 @@
             eventmngmtBTN.TextOffset = new Point(20, 2);
             eventmngmtBTN.Click += eventmngmtBTN_Click;
             // 
-            // guna2Button1
+            // usrmngmtBTN
             // 
-            guna2Button1.CustomizableEdges = customizableEdges13;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.Dock = DockStyle.Top;
-            guna2Button1.FillColor = Color.FromArgb(39, 55, 77);
-            guna2Button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.FromArgb(220, 230, 237);
-            guna2Button1.Image = Properties.Resources.users;
-            guna2Button1.ImageAlign = HorizontalAlignment.Left;
-            guna2Button1.ImageSize = new Size(30, 30);
-            guna2Button1.Location = new Point(0, 0);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Button1.Size = new Size(179, 45);
-            guna2Button1.TabIndex = 0;
-            guna2Button1.Text = "Users Management";
-            guna2Button1.TextOffset = new Point(20, 2);
+            usrmngmtBTN.CustomizableEdges = customizableEdges13;
+            usrmngmtBTN.DisabledState.BorderColor = Color.DarkGray;
+            usrmngmtBTN.DisabledState.CustomBorderColor = Color.DarkGray;
+            usrmngmtBTN.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            usrmngmtBTN.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            usrmngmtBTN.Dock = DockStyle.Top;
+            usrmngmtBTN.FillColor = Color.FromArgb(39, 55, 77);
+            usrmngmtBTN.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            usrmngmtBTN.ForeColor = Color.FromArgb(220, 230, 237);
+            usrmngmtBTN.Image = Properties.Resources.users;
+            usrmngmtBTN.ImageAlign = HorizontalAlignment.Left;
+            usrmngmtBTN.ImageSize = new Size(30, 30);
+            usrmngmtBTN.Location = new Point(0, 0);
+            usrmngmtBTN.Name = "usrmngmtBTN";
+            usrmngmtBTN.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            usrmngmtBTN.Size = new Size(179, 45);
+            usrmngmtBTN.TabIndex = 0;
+            usrmngmtBTN.Text = "Users Management";
+            usrmngmtBTN.TextOffset = new Point(20, 2);
+            usrmngmtBTN.Click += usrmngmtBTN_Click;
             // 
             // mainPanel
             // 
@@ -256,7 +257,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2Panel mainPanel;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button usrmngmtBTN;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button eventmngmtBTN;

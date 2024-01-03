@@ -10,6 +10,9 @@
     <Compile Update="AdminPanelHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AdminUSERcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>

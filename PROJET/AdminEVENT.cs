@@ -112,7 +112,7 @@ namespace PROJET
                 try
                 {
                     cnx.Open();
-                    string sql = "SELECT nom_event as Event_Name,nom_sport as Sport,nom_stade as Stadium,event_Date FROM sport S INNER JOIN  evenement E on S.sportID=E.sportID INNER JOIN  stade ST on st.stadiumID=E.stadiumID";
+                    string sql = "SELECT nom_event as Event_Name , nom_sport as Sport,nom_stade as Stadium,event_Date as Event_Date FROM sport S INNER JOIN  evenement E on S.sportID=E.sportID INNER JOIN  stade ST on st.stadiumID=E.stadiumID";
                     SqlCommand command = new SqlCommand(sql, cnx);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable eventsTable = new DataTable();
@@ -144,7 +144,7 @@ namespace PROJET
             DateTime date = DatePick.Value;
             string formattedDateTime = String.Format("{0:yyyy-MM-dd HH:mm:ss}", date);
             int sport = SportCombo.SelectedIndex+1;
-           
+          
             String searchQuery = "select * from evenement where nom_event ='" + name + "'";
             SqlDataAdapter sda = new SqlDataAdapter(searchQuery, cnx);
             DataTable dtable = new DataTable();

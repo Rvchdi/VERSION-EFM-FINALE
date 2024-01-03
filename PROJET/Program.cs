@@ -27,7 +27,7 @@ namespace PROJET
         }
         public static SqlConnection Getconnection()
         {
-            string strcnx = @"server=192.168.1.2; database=efm; uid=sa; password=; TrustServerCertificate=True";
+            string strcnx = @"server=192.168.0.187; database=efm; uid=sa; password=heklilinifi1523; TrustServerCertificate=True";
             SqlConnection cnx = new SqlConnection(strcnx);
             return cnx;
         }
