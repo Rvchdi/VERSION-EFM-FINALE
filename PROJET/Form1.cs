@@ -11,7 +11,6 @@ namespace PROJET
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -21,18 +20,18 @@ namespace PROJET
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
 
         private void signinBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Connected successfully", "Connected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
 
         }
 
         private void forgetpwdBtn_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -61,62 +60,61 @@ namespace PROJET
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
             string username = usernameTXT.Text;
             string password = pwdTXT.Text;
-            SqlConnection cnx = Program.Getconnection();
-            String query = "SELECT USERNAME,PWD,ROLE from client WHERE USERNAME='" + username + "'AND PWD='" + password + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, cnx);
-            DataTable dtable = new DataTable();
-            sda.Fill(dtable);
-            
 
-            if (username == "" || password == "")
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Fill all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            try
             {
-                if (dtable.Rows.Count > 0)
+                using (SqlConnection cnx = Program.Getconnection())
                 {
                     cnx.Open();
-                    string rolequery = $"SELECT ROLE FROM client WHERE USERNAME = @username";
-                    SqlCommand command = new SqlCommand(rolequery, cnx);
-                    command.Parameters.AddWithValue("@username", username);
-                    SqlDataReader reader = command.ExecuteReader();
-                    reader.Read();
-                    if (reader.HasRows)
-                    {
-                        string role = reader.GetString("ROLE");
-                        if (role == "admin")
-                        {
-                            AdminPanel main = new AdminPanel();
-                            main.Show();
-                            this.Hide();
-                            cnx.Close();
-                        }
-                        else
-                        {
-                            UserForm userform = new UserForm();
-                            userform.SetUsername(username);
-                            userform.Show();
-                            this.Hide();
-                            cnx.Close();
 
+                    string query = $"SELECT role,clientID FROM client WHERE USERNAME = '"+username+"' AND PWD = '"+password+"'";
+                    using (SqlCommand command = new SqlCommand(query, cnx))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string role = reader.GetString("ROLE");
+                                int idint = reader.GetInt32("clientID");
+                                Session.user = Convert.ToString(idint);
+                                if (role == "admin")
+                                {
+                                    AdminPanel main = new AdminPanel();
+                                    main.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    UserForm userform = new UserForm();
+                                    userform.SetUsername(username);
+                                    userform.Show();
+                                    this.Hide();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid Login details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
-                    else {
-                        MessageBox.Show("No data retrieved");
-                    }
-                    
-                    
-                    
                 }
-                else
-                {
-                    MessageBox.Show("Invalid Login details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    username = "";
-                    password = "";
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -30,12 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             label6 = new Label();
             pwdTXT = new TextBox();
             usernameTXT = new TextBox();
-            materialButton1 = new MaterialSkin2DotNet.Controls.MaterialButton();
             forgetpwdBtn = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -51,9 +53,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(326, -2);
+            pictureBox1.Location = new Point(605, -4);
+            pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(468, 461);
+            pictureBox1.Size = new Size(1001, 983);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -61,18 +64,37 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonHighlight;
+            panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(pwdTXT);
             panel1.Controls.Add(usernameTXT);
-            panel1.Controls.Add(materialButton1);
             panel1.Controls.Add(forgetpwdBtn);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(-3, -2);
+            panel1.Location = new Point(-6, -4);
+            panel1.Margin = new Padding(6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(333, 495);
+            panel1.Size = new Size(618, 1056);
             panel1.TabIndex = 1;
+            // 
+            // guna2Button1
+            // 
+            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(128, 128, 255);
+            guna2Button1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(122, 610);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.Size = new Size(360, 90);
+            guna2Button1.TabIndex = 13;
+            guna2Button1.Text = "Connection";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // label6
             // 
@@ -81,9 +103,10 @@
             label6.Cursor = Cursors.Hand;
             label6.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.LimeGreen;
-            label6.Location = new Point(118, 355);
+            label6.Location = new Point(190, 713);
+            label6.Margin = new Padding(6, 0, 6, 0);
             label6.Name = "label6";
-            label6.Size = new Size(100, 13);
+            label6.Size = new Size(200, 30);
             label6.TabIndex = 12;
             label6.Text = "Create an account";
             label6.Click += label6_Click;
@@ -91,40 +114,21 @@
             // pwdTXT
             // 
             pwdTXT.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pwdTXT.Location = new Point(38, 219);
+            pwdTXT.Location = new Point(71, 467);
+            pwdTXT.Margin = new Padding(6);
             pwdTXT.Name = "pwdTXT";
-            pwdTXT.Size = new Size(272, 33);
+            pwdTXT.Size = new Size(502, 58);
             pwdTXT.TabIndex = 11;
             pwdTXT.TextChanged += pwdTXT_TextChanged_1;
             // 
             // usernameTXT
             // 
             usernameTXT.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            usernameTXT.Location = new Point(38, 158);
+            usernameTXT.Location = new Point(71, 337);
+            usernameTXT.Margin = new Padding(6);
             usernameTXT.Name = "usernameTXT";
-            usernameTXT.Size = new Size(272, 33);
+            usernameTXT.Size = new Size(502, 58);
             usernameTXT.TabIndex = 10;
-            // 
-            // materialButton1
-            // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Cursor = Cursors.Hand;
-            materialButton1.Density = MaterialSkin2DotNet.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(113, 301);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(105, 36);
-            materialButton1.TabIndex = 9;
-            materialButton1.Text = "Connexion";
-            materialButton1.Type = MaterialSkin2DotNet.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
-            materialButton1.Click += materialButton1_Click;
             // 
             // forgetpwdBtn
             // 
@@ -133,9 +137,10 @@
             forgetpwdBtn.Cursor = Cursors.Hand;
             forgetpwdBtn.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             forgetpwdBtn.ForeColor = Color.LimeGreen;
-            forgetpwdBtn.Location = new Point(208, 272);
+            forgetpwdBtn.Location = new Point(370, 531);
+            forgetpwdBtn.Margin = new Padding(6, 0, 6, 0);
             forgetpwdBtn.Name = "forgetpwdBtn";
-            forgetpwdBtn.Size = new Size(102, 13);
+            forgetpwdBtn.Size = new Size(203, 30);
             forgetpwdBtn.TabIndex = 4;
             forgetpwdBtn.Text = "Forget password ?";
             forgetpwdBtn.Click += forgetpwdBtn_Click;
@@ -146,9 +151,10 @@
             label5.BackColor = SystemColors.Window;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ActiveCaptionText;
-            label5.Location = new Point(38, 195);
+            label5.Location = new Point(71, 416);
+            label5.Margin = new Padding(6, 0, 6, 0);
             label5.Name = "label5";
-            label5.Size = new Size(76, 21);
+            label5.Size = new Size(153, 45);
             label5.TabIndex = 6;
             label5.Text = "Password";
             // 
@@ -158,9 +164,10 @@
             label4.BackColor = SystemColors.Window;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ActiveCaptionText;
-            label4.Location = new Point(38, 134);
+            label4.Location = new Point(71, 286);
+            label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new Size(81, 21);
+            label4.Size = new Size(163, 45);
             label4.TabIndex = 4;
             label4.Text = "Username";
             // 
@@ -170,9 +177,10 @@
             label3.BackColor = SystemColors.Window;
             label3.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.MediumPurple;
-            label3.Location = new Point(113, 40);
+            label3.Location = new Point(210, 85);
+            label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new Size(120, 50);
+            label3.Size = new Size(237, 99);
             label3.TabIndex = 4;
             label3.Text = "Login";
             // 
@@ -185,9 +193,10 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             closeBtn.ForeColor = Color.MediumSeaGreen;
-            closeBtn.Location = new Point(745, -2);
+            closeBtn.Location = new Point(1515, -4);
+            closeBtn.Margin = new Padding(6);
             closeBtn.Name = "closeBtn";
-            closeBtn.Size = new Size(49, 43);
+            closeBtn.Size = new Size(91, 92);
             closeBtn.TabIndex = 2;
             closeBtn.Text = "X";
             closeBtn.UseVisualStyleBackColor = false;
@@ -198,9 +207,10 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.Window;
             label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(336, 37);
+            label1.Location = new Point(624, 79);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(342, 47);
+            label1.Size = new Size(681, 93);
             label1.TabIndex = 3;
             label1.Text = "Explore events, buy";
             // 
@@ -210,9 +220,10 @@
             label2.BackColor = SystemColors.Window;
             label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.LimeGreen;
-            label2.Location = new Point(665, 38);
+            label2.Location = new Point(1282, 79);
+            label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(129, 47);
+            label2.Size = new Size(255, 93);
             label2.TabIndex = 0;
             label2.Text = "tickets";
             // 
@@ -223,9 +234,9 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(795, 393);
+            ClientSize = new Size(1604, 838);
             ControlBox = false;
             Controls.Add(label2);
             Controls.Add(label1);
@@ -233,6 +244,7 @@
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(6);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
@@ -255,10 +267,10 @@
         private Label label4;
         private Label forgetpwdBtn;
         private Label label5;
-        private MaterialSkin2DotNet.Controls.MaterialButton materialButton1;
         private TextBox pwdTXT;
         private TextBox usernameTXT;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Label label6;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

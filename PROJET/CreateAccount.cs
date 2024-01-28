@@ -35,7 +35,6 @@ namespace PROJET
             {
                 if (cnx.State != ConnectionState.Open)
                     cnx.Open();
-                MessageBox.Show("Connected successfully", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
@@ -46,9 +45,8 @@ namespace PROJET
         private void ConfirmBTN_Click(object sender, EventArgs e)
         {
             
-            List<string> Details = new List<string>();
+           
             SqlConnection cnx = Program.Getconnection();  
-            
             String firstname = firstnameTXT.Text;
             String lastname = lastnameTXT.Text;
             String adress = adressTXT.Text;
@@ -84,8 +82,7 @@ namespace PROJET
                         command.Parameters.AddWithValue("@Value8", "user");
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
-                        {
-                            // Handle successful insertion (e.g., display a message)
+                        {                         
                             if (MessageBox.Show("Account created successfully", "Account created", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                             {
                                 this.Close();

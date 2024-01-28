@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Uf+U43OaCx9gU1F5khG7wcCunnSvsVY58TFott2EN6OLD79yhnJtcAO9iDPr352w4sR4sZhtt72gW+N3B/bfjQ==",
+  "dgSpecHash": "pJpQOMNbTak++O7Y0bYPldOSyf7x7gYmd46mDvtY9ewHawx4HMA5T4ozvSwtxpognf16o6iBTWuIACh7udU92w==",
   "success": true,
   "projectFilePath": "\\\\Mac\\Home\\Desktop\\PROJET EFM\\C#\\PROJET\\PROJET\\PROJET.csproj",
   "expectedPackageFiles": [
@@ -70,7 +70,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Le package 'MaterialSkin 0.2.1' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows7.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "message": "Package 'MaterialSkin 0.2.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "MaterialSkin",
       "targetGraphs": [
         "net8.0-windows7.0"
@@ -80,7 +80,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Le package 'MaterialSkin.Updated 0.2.2' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows7.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "message": "Package 'MaterialSkin.Updated 0.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "MaterialSkin.Updated",
       "targetGraphs": [
         "net8.0-windows7.0"
